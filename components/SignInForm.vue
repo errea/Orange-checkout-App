@@ -1,41 +1,94 @@
 <template>
-<div>
-    <div class="w-full max-w-xs">
-  <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-        Username
-      </label>
-      <input id="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Username">
-    </div>
+  <form 
+  class="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mt-12"
+  action="javascript:;" @submit.prevent="submitForm"
+  >
     <div class="mb-6">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+    <p class="flex justify-center font-bold text-4xl">
+      Sign In
+    </p>
+     <span class="mt-6 font-medium">Your account has been created successfully, now sign in with your details created</span>
+  </div>
+     <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-email">
+        Email 
+      </label>
+      <input id="grid-email" v-model="user.email" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="email" required placeholder="erreakezy@gmail.com">
+      <p class="text-gray-600 text-xs italic">Enter your email</p>
+    </div>
+  </div>
+    <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
         Password
       </label>
-      <input id="password" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" type="password" placeholder="******************">
-      <p class="text-red-500 text-xs italic">Please choose a password.</p>
+      <input id="grid-password" v-model="user.password" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="password" required placeholder="******************">
+      <p class="text-gray-600 text-xs italic">Enter your Password</p>
     </div>
-    <div class="mb-6">
-     <div class="md:w-1/3"></div>
-    <label class="md:w-2/3 block text-gray-500 font-bold">
-      <input class="mr-2 leading-tight" type="checkbox">
-      <span class="text-sm">
-        Remember me 
-      </span>
-    </label>
   </div>
-    <div class="flex items-center justify-between">
-      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-        Sign In
+   <div class="w-full mb-6">
+      <label class="w-full flex text-gray-500 font-bold">
+      <input v-model="user.remember" class="mr-2 mt-1 leading-tight" type="checkbox" required>
+      <p class="text-sm text-sky-400">
+        Remember me 
+      </p>
+      </label>
+    </div>
+   <div class="flex justify-center">
+      <button class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+        Register
       </button>
+   </div>
+    <div class="flex items-center gap-6 justify-between mt-6">
+       <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+        Click here to Sign Up
+      </a>
       <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
         Forgot Password?
       </a>
     </div>
 </form>
-  <p class="text-center text-gray-500 text-xs">
-    &copy;2021 Eri. All rights reserved.
-  </p>
-</div>
-  </div>
 </template>
+
+<script>
+export default {
+  name: 'SignInForm',
+  data () {
+        return { 
+            user: {
+                email:'',
+                password:'',
+                remember: false,
+            }
+         }
+    },
+    computed: {
+        isFormValid () {
+            return (this.isValid('email') && this.isValid('password'))
+        }
+    },
+     methods: {
+        handleForm () {
+            const formvalue = Object.assign({}, this.user)
+            this.resetFormValues()
+            this.$emit('signin-form', {type:'signin', data:formvalue})
+        },
+        resetFormValues () {
+            this.user.email = ''
+            this.user.password = ''
+        },
+        isValid(prop) {
+        
+        },
+    },
+    template:'#signinTemplate',
+}
+</script>
+
+
+<style>
+/* .nuxt-logo {
+  height: 180px;
+} */
+</style>
