@@ -1,7 +1,7 @@
 <template>
   <form 
   class="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mt-12"
-  action="javascript:;" @submit.prevent="submitForm"
+  @submit.prevent="submitForm"
   >
     <div class="mb-6">
     <p class="flex justify-center font-bold text-4xl">
@@ -23,7 +23,7 @@
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
         Password
       </label>
-      <input id="grid-password" v-model="user.password" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="password" required placeholder="******************">
+      <input id="grid-password" v-model="user.password" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" autocomplete="on" type="password" required placeholder="******************">
       <p class="text-gray-600 text-xs italic">Enter your Password</p>
     </div>
   </div>
@@ -63,24 +63,41 @@ export default {
             }
          }
     },
-    computed: {
-        isFormValid () {
-            return (this.isValid('email') && this.isValid('password'))
-        }
+    // computed: {
+    //     isFormValid () {
+    //         return (this.isValid('email') && this.isValid('password'))
+    //     }
+    // },
+     watch: {
+    user: {
+      handler(newUser) {
+      localStorage.user = JSON.stringify(newUser);
     },
+    deep: true
+    }
+  },
+  mounted() {
+    if(localStorage.user) 
+    {
+      this.user = JSON.parse(localStorage.user);
+    }
+  },
      methods: {
         handleForm () {
             const formvalue = Object.assign({}, this.user)
             this.resetFormValues()
             this.$emit('signin-form', {type:'signin', data:formvalue})
         },
-        resetFormValues () {
-            this.user.email = ''
-            this.user.password = ''
-        },
-        isValid(prop) {
+        // resetFormValues () {
+        //     this.user.email = ''
+        //     this.user.password = ''
+        // },
+        // isValid(prop) {
         
-        },
+        // },
+        submitForm () {
+          
+        }
     },
     template:'#signinTemplate',
 }
