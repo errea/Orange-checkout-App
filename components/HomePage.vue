@@ -1,35 +1,35 @@
 <template>
- <div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">
-    <div class="absolute justify-center top-2">
-      <button 
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-      @click.prevent='setComponent("signin")'
-      >
-      Signin
-			</button>
-			<button 
+<div class="px-2 sm:px-4 py-2.5 dark:bg-gray-800">
+  <div class="container flex flex-wrap justify-center items-center mx-auto">
+    <div class="w-full md:block md:w-auto">
+          <button 
       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
       @click.prevent='setComponent("signup")'
       >
       Register
 			</button> 
-      <transition name='form' mode='out-in'>
+       <button 
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      @click.prevent='setComponent("signin")'
+      >
+      Signin
+			</button>
+       <transition name='form' mode='out-in'>
 			<keep-alive>
 				 <component 
          :is="currentComponent"
-         :feedback='feedback' 
 				 @signup-form='handleForm' @signin-form='handleForm'>
          </component>
 			</keep-alive>
 	  </transition>
-	  </div>
- </div>
+    </div>
+  </div>
+</div>	 
 </template>
 
 <script>
 import SignUpForm from '~/components/SignUpForm';
 import SignInForm from '~/components/SignInForm';
-
 export default {
   name: 'HomePage',
    components: {
@@ -38,8 +38,7 @@ export default {
   },
     data () {
         return {
-            feedback:{},
-            currentComponent:'signin'
+            currentComponent:'signup'
          }
     },
     methods: {
@@ -49,9 +48,9 @@ export default {
                 this.setComponent('feedback')
             }, 280)
         },
-        // isDisabled (btnName) {
-        //     return (this.currentComponent === btnName)
-        // },
+        isDisabled (btnName) {
+            return (this.currentComponent === btnName)
+        },
         setComponent(componentName) {
             if (this.currentComponent !== componentName) {
                 this.currentComponent = componentName
