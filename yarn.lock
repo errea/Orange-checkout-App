@@ -1680,6 +1680,14 @@
     serve-static "^1.14.1"
     workbox-cdn "^5.1.4"
 
+"@nuxtjs/router@^1.7.0":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/router/-/router-1.7.0.tgz#631b85c1e853580d558aa49572da2d0474e0c832"
+  integrity sha512-7OXEYqE/7uM/7Bx1Ab8udyFgBux9h5IisJqNLMNa5hxt9oBtF43VXHEnnQV4FtYpKyg8ysTFDT9FJlC+tGqpQg==
+  dependencies:
+    consola "^2.15.3"
+    defu "^5.0.0"
+
 "@nuxtjs/stylelint-module@^4.1.0":
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/@nuxtjs/stylelint-module/-/stylelint-module-4.1.0.tgz#2d69dc882a0b2b4391311c405b07d4b39a975ff5"
@@ -11264,6 +11272,11 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
+
+validator@^13.7.0:
+  version "13.7.0"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-13.7.0.tgz#4f9658ba13ba8f3d82ee881d3516489ea85c0857"
+  integrity sha512-nYXQLCBkpJ8X6ltALua9dRrZDHVYxjJ1wgskNt1lH9fzGjs3tgojGSCBjmEPwkWS1y29+DrizMTW19Pr9uB2nw==
 
 vary@^1.1.2, vary@~1.1.2:
   version "1.1.2"

@@ -1,7 +1,7 @@
 <template>
     
-<div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">
-    <div class="absolute justify-center top-2">
+<div class="relative flex items-top justify-center min-h-screen sm:items-center sm:pt-0">
+    <div class="justify-center top-2">
       <form 
   class="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mt-12"
   @submit.prevent="submitForm"
@@ -26,7 +26,7 @@
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
         Password
       </label>
-      <input id="grid-password" v-model="user.password" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" autocomplete="on" type="password" required placeholder="******************">
+      <input id="grid-password" v-model="user.password" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="password" required placeholder="******************">
       <p class="text-gray-600 text-xs italic">Enter your Password</p>
     </div>
   </div>

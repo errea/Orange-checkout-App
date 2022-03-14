@@ -1,9 +1,7 @@
 <template>   
-<div class="relative flex items-top justify-center min-h-screen bg-gray-100 sm:items-center sm:pt-0">
-  <div class="absolute justify-center top-2">
-    <form 
-          class="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mt-12" 
-          @submit.prevent="registerUsersubmitForm()">
+<div class="relative flex items-top justify-center min-h-screen sm:items-center sm:pt-0">
+  <div class="justify-center top-2">
+    <form novalidate class="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mt-12" @submit.prevent="registerUsersubmitForm()">
         <div class="mb-6">
           <p class="flex justify-center font-bold text-4xl">
             Register
@@ -15,14 +13,14 @@
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         First Name
       </label>
-      <input id="grid-first-name" v-model="firstName" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" :class="`form-control ${errors.firstName ? 'is-invalid' : ''}`" type="text" placeholder="Jane" required>
+      <input id="grid-first-name" v-model="firstName" class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" :class="`form-control ${errors.firstName ? 'is-invalid' : ''}`" type="text" placeholder="Jane">
       <div class="text-red-600 text-xs italic">{{ errors.firstName }}</div>
       </div>
       <div class="w-full md:w-1/2 px-3">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
         User Name
       </label>
-      <input id="grid-last-name" v-model="userName" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" :class="`form-control ${errors.userName ? 'is-invalid' : ''}`" type="text" placeholder="Doe" required>
+      <input id="grid-last-name" v-model="userName" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" :class="`form-control ${errors.userName ? 'is-invalid' : ''}`" type="text" placeholder="Doe">
       <div class="text-red-600 text-xs italic">{{ errors.userName }}</div>
       </div>
       </div>
@@ -31,7 +29,7 @@
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-email">
         Email 
       </label>
-      <input id="grid-email" v-model="email" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" :class="`form-control ${errors.email ? 'is-invalid' : ''}`" type="email" required placeholder="erreakezy@gmail.com">
+      <input id="grid-email" v-model="email" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" :class="`form-control ${errors.email ? 'is-invalid' : ''}`" type="email" placeholder="erreakezy@gmail.com">
       <div class="text-red-600 text-xs italic">{{ errors.email }}</div>
       </div>
       </div>
@@ -40,7 +38,7 @@
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
         Password
       </label>
-      <input id="grid-password" v-model="password" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" :class="`form-control ${errors.password ? 'is-invalid' : ''}`" autocomplete="on" type="password" placeholder="******************" required>
+      <input id="grid-password" v-model="password" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" :class="`form-control ${errors.password ? 'is-invalid' : ''}`" type="password" placeholder="******************">
       <!-- <p v-if="passwordErr" class="text-red-600 text-xs italic"> Password must be at least seven characters long </p> -->
       <div class="text-red-600 text-xs italic">{{ errors.password }}</div>
       </div>
@@ -50,7 +48,7 @@
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-password">
         Confirm Password
       </label>
-      <input id="grid-passwordChck" v-model="passwordChck" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" :class="`form-control ${errors.passwordChck ? 'is-invalid' : ''}`" autocomplete="on" type="password" required placeholder="******************">
+      <input id="grid-passwordChck" v-model="passwordChck" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" :class="`form-control ${errors.passwordChck ? 'is-invalid' : ''}`" autocomplete="on" type="password" placeholder="******************">
       <div class="text-red-600 text-xs italic">{{ errors.passwordChck }}</div>
       </div>
       </div>
@@ -85,12 +83,14 @@ export default {
                 email:'',
                 password:'',
                 passwordChck:'',
-                terms: false, 
+                terms: false,
+                errors: {}, 
+                users: [],
         }
     },
   //   watch: {
   //   user: {
-  //     handler(newUser, oldUser) {
+  //     handler(newUser) {
   //     localStorage.user = JSON.stringify(newUser);
   //   },
   //   deep: true
@@ -135,6 +135,7 @@ export default {
         this.email = "";
         this.password = "";
         this.passwordChck = "";
+        this.terms = "";
         // this.$router.push("/login");
       }
         }

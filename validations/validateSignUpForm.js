@@ -9,9 +9,21 @@ const validateSignUpForm = (data) => {
   if (localStorage.users) {
     let lsUsers = localStorage.users;
     lsUsers = JSON.parse(lsUsers);
+    const index1 = lsUsers.findIndex((user) => user.firstName === firstName);
     const index = lsUsers.findIndex((user) => user.userName === userName);
+    const index2 = lsUsers.findIndex((user) => user.email === email);
+    const index3 = lsUsers.findIndex((user) => user.password === password);
     if (index > -1) {
       errors.userName = "Username already exists!";
+    }
+    if (index1 > -1) {
+      errors.firstName = "First name already exists!";
+    }
+    if (index2 > -1) {
+      errors.email = "email already exists!";
+    }
+    if (index3 > -1) {
+      errors.password = "Password already exists!";
     }
   }
 
