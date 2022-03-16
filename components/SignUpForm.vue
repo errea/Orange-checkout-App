@@ -100,7 +100,7 @@ export default {
             email: this.email,
             password: this.password,
             passwordChck: this.passwordChck,
-            terms: this.terms
+            // terms: this.terms
           };
           const { isInvalid, errors } = validateSignUpForm(user);
       if (isInvalid) {
@@ -119,7 +119,7 @@ export default {
         this.email = "";
         this.password = "";
         this.passwordChck = "";
-        this.terms = "";
+        // this.terms = "";
         this.$router.push("/user/login");
       }
         }

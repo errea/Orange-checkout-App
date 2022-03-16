@@ -16,7 +16,6 @@
         Email 
       </label>
       <input id="grid-email" v-model="email" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" :class="`form-control ${errors.email ? 'is-invalid' : ''}`" type="email" placeholder="erreakezy@gmail.com">
-      <p class="text-gray-600 text-xs italic">Enter your Email</p>
       <div class="text-red-600 text-xs italic">{{ errors.email }}</div>
     </div>
   </div>
@@ -26,7 +25,6 @@
         Password
       </label>
       <input id="grid-password" v-model="password" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" :class="`form-control ${errors.password ? 'is-invalid' : ''}`" type="password" placeholder="******************">
-      <p class="text-gray-600 text-xs italic">Enter your Password</p>
       <div class="text-red-600 text-xs italic">{{ errors.password }}</div>
     </div>
   </div>
@@ -42,7 +40,6 @@
       <button class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
         Login
       </button>
-      <!-- // If the user Logs in... take user to Home (HomeNav Component) -->
   </div>
     <div class="flex items-center gap-6 justify-between mt-6">
       <NuxtLink to="/user/reg" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
@@ -100,13 +97,14 @@ export default {
           const passwordIndex = lsUsers.findIndex(
             (user) => user.password === credentials.password);
             if (passwordIndex > -1) {
+              // setting active user
                 const activeUser = lsUsers.find(
               (user) => user.email === credentials.email
             );
-              localStorage.setItem("activeUser", JSON.stringify(activeUser));
+              sessionStorage.setItem("activeUser", JSON.stringify(activeUser));
               this.$router.push("/user/home")
             } else {
-            this.errors.password = "Password does not match";
+            this.errors.password = "Incorrect Password";
             }
            } else {
             this.errors.email = "Email Address does not exist!";
