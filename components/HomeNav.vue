@@ -42,6 +42,9 @@ export default {
     if (sessionStorage.activeUser) {
       const activeUser = sessionStorage.activeUser;
       this.user = JSON.parse(activeUser);
+      this.$router.push("/user/home")
+    } else {
+      this.$router.push("/");
     }
   },
      methods: {

@@ -86,6 +86,13 @@ export default {
                 users: [],
         }
     },
+    mounted() {
+    if (sessionStorage.activeUser) {
+      const activeUser = sessionStorage.activeUser;
+      this.user = JSON.parse(activeUser);
+      this.$router.push("/user/home")
+    }
+  },
     methods: {
         onSubmit () {
             const user = Object.assign({}, this.user)
@@ -99,10 +106,11 @@ export default {
             lastName: this.lastName,
             email: this.email,
             password: this.password,
-            passwordChck: this.passwordChck,
-            // terms: this.terms
           };
-          const { isInvalid, errors } = validateSignUpForm(user);
+          const { isInvalid, errors } = validateSignUpForm({
+           ...user,
+            passwordChck: this.passwordChck,
+            });
       if (isInvalid) {
         this.errors = errors;
       } else {
@@ -119,7 +127,6 @@ export default {
         this.email = "";
         this.password = "";
         this.passwordChck = "";
-        // this.terms = "";
         this.$router.push("/user/login");
       }
         }

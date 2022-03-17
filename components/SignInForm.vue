@@ -66,8 +66,16 @@ export default {
                 password:'',
                 remember: false,
                 errors: {},
-        }
-    },   
+                user:'',
+              }
+    },
+ mounted() {
+    if (sessionStorage.activeUser) {
+      const activeUser = sessionStorage.activeUser;
+      this.user = JSON.parse(activeUser);
+      this.$router.push("/user/home")
+    }
+  }, 
     methods: {
        handleForm () {
             const formvalue = Object.assign({}, this.user)
