@@ -71,6 +71,9 @@ typings/
 # Nuxt generate
 dist
 
+# Nuxt generate
+orange-app
+
 # vuepress build output
 .vuepress/dist
 

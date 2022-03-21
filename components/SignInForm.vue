@@ -45,9 +45,9 @@
       <NuxtLink to="/user/reg" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
         Click here to Sign Up
       </NuxtLink>
-      <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
+      <NuxtLink to="/user/forgot" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
         Forgot Password?
-      </a>
+      </NuxtLink>
     </div>
 </form>
     </div>
@@ -112,7 +112,7 @@ export default {
               sessionStorage.setItem("activeUser", JSON.stringify(activeUser));
               this.$router.push("/user/home")
             } else {
-            this.errors.password = "Incorrect Password";
+            this.errors.password = "Incorrect Login";
             }
            } else {
             this.errors.email = "Email Address does not exist!";

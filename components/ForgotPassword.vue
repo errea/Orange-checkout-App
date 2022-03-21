@@ -36,27 +36,26 @@ export default {
       }
     },
 
-    mounted() {
-    if (sessionStorage.activeUser) {
-      const activeUser = sessionStorage.activeUser;
-      this.user = JSON.parse(activeUser);
-      this.$router.push("/user/home")
-    } else {
-      this.$router.push("/");
-    }
-  },
-     methods: {
-      forgotPasseordSubmit () {
-    //    if ((this.password !== this.passwordVerify){
-    //        this.alert = "Passwords must match";
-    //       return;
-    //    }   
-      sessionStorage.removeItem("activeUser");
-      this.$router.push("/user/login");
-      // window.location.reload();
-    },
-    },
-    template:'#signinTemplate',
+//     mounted() {
+//     if (sessionStorage.activeUser) {
+//       const activeUser = sessionStorage.activeUser;
+//       this.user = JSON.parse(activeUser);
+//       this.$router.push("/user/home")
+//     } else {
+//       this.$router.push("/");
+//     }
+//   },
+    //  methods: {
+    //   forgotPasseordSubmit () {
+    // //    if ((this.password !== this.passwordVerify){
+    // //        this.alert = "Passwords must match";
+    // //       return;
+    // //    }   
+    //   sessionStorage.removeItem("activeUser");
+    //   this.$router.push("/user/login");
+    //   // window.location.reload();
+    // },
+    // },
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>   
 <div class="relative flex items-top justify-center min-h-screen sm:items-center sm:pt-0 dark:bg-gray-800">
   <div class="justify-center top-2">
-    <form novalidate class="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mt-12" @submit.prevent="registerUserSubmitForm()">
+    <form class="w-full max-w-lg bg-white shadow-md rounded px-8 pt-6 pb-8 mt-12" @submit.prevent="registerUserSubmitForm()">
         <div class="mb-6">
           <p class="flex justify-center font-bold text-4xl">
             Register
@@ -53,7 +53,7 @@
       </div>
       <div class="w-full mb-6">
       <label class="w-full flex text-gray-500 font-bold">
-      <input v-model="terms" class="mr-2 mt-1 leading-tight cursor-pointer" type="checkbox" required>
+      <input v-model="terms" class="mr-2 mt-1 leading-tight cursor-pointer" name="terms" value="1" type="checkbox" required>
       <p class="text-sm">
         By clicking on the Sign Up button, you agree to our <span class="text-blue-400 hover:text-sky-400 cursor-pointer"> Terms & Conditions of use  </span> and <span class="text-blue-400 hover:text-sky-400 cursor-pointer "> Privacy Policy </span>
       </p>
