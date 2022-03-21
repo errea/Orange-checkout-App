@@ -121,6 +121,15 @@ export default {
     return { 
       }
     },
+     mounted() {
+    if (sessionStorage.activeUser) {
+      const activeUser = sessionStorage.activeUser;
+      this.user = JSON.parse(activeUser);
+      this.$router.push("/user/stepper")
+    } else {
+      this.$router.push("/");
+    }
+  },
 }
 </script>
 
