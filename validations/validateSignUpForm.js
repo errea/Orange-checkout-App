@@ -11,14 +11,14 @@ const validateSignUpForm = (data) => {
     lsUsers = JSON.parse(lsUsers);
   
     const emailIndex = lsUsers.findIndex((user) => user.email === email);
-    const passwordIndex = lsUsers.findIndex((user) => user.password === password);
+    // const passwordIndex = lsUsers.findIndex((user) => user.password === password);
    
     if (emailIndex > -1) {
       errors.email = "email already exists!";
     }
-    if (passwordIndex > -1) {
-      errors.password = "Password already exists!";
-    }
+    // if (passwordIndex > -1) {
+    //   errors.password = "Password already exists!";
+    // }
   }
 
   if (validator.isEmpty(firstName)) {
