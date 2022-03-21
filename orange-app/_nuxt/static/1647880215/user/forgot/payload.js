@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/user/forgot", {data:[{}],fetch:{},mutations:void 0});
