@@ -105,7 +105,7 @@
             <span>Total cost</span>
             <span>$600</span>
           </div>
-          <NuxtLink to="/user/stepper">
+          <NuxtLink to="">
               <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
           </NuxtLink>
         </div>
