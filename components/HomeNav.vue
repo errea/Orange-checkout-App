@@ -16,20 +16,17 @@
   </div>
 </nav>
 <HomeWelocome />
-<ShoppingList />
 </main>
 </template>
 
 
 <script>
-import HomeWelocome from '~/components/panels/HomeWelcome';
-import ShoppingList from '~/components/panels/ShoppingList.vue'
+import HomeWelocome from '~/components/HomeWelcome';
 
 export default {
   name: 'HomeNav',
    components: {
        HomeWelocome,
-       ShoppingList,
   },
   data () {
     return { 
