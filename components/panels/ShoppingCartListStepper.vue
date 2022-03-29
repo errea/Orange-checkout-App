@@ -2,9 +2,9 @@
 <form class="">
   <div class="container mx-auto mt-10">
     <div class="flex shadow-md my-10">
-      <div class="w-3/4 dark:bg-gray-50 px-10 py-10">
+      <div class="w-full dark:bg-gray-50 px-10 py-10">
         <div class="flex justify-between border-b pb-8">
-          <h1 class="font-semibold text-2xl">Shopping Cart</h1>
+          <h1 class="font-semibold text-2xl">Shopping Cart List</h1>
           <h2 class="font-semibold text-2xl">3 Items</h2>
         </div>
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -58,58 +58,29 @@
         </tbody>
     </table>
 </div>
-<div class="mt-6 mb-4"><h4>Add new item</h4></div>
+<div class="mt-6 mb-4 font-semibold text-2xl"><h4>Add new item to Shopping List </h4></div>
 <div class="col">
-              <div class="">
+              <div class="font-semibold">
                 Name
                 <input v-model="itemName" type="text" class="text-gray-900 ring-gray-900 ring-opacity-5 placeholder-gray-400 appearance-none bg-white rounded-md block w-1/2 px-3 py-2 border border-transparent shadow ring-1 sm:text-sm focus:border-teal-500 focus:ring-teal-500 focus:outline-none">
               </div>
-              <div class="col-md-6 form-group">
+              <div class="font-semibold mt-6">
                 Quantity
                 <input v-model="itemQuantity" type="number" min="0" class="text-gray-900 ring-gray-900 ring-opacity-5 placeholder-gray-400 appearance-none bg-white rounded-md block w-1/2 px-3 py-2 border border-transparent shadow ring-1 sm:text-sm focus:border-teal-500 focus:ring-teal-500 focus:outline-none">
               </div>
-              <div class="col-md-6 form-group">
+              <div class="font-semibold mt-6">
                 Color
                 <input v-model="itemColor" type="text" class="text-gray-900 ring-gray-900 ring-opacity-5 placeholder-gray-400 appearance-none bg-white rounded-md block w-1/2 px-3 py-2 border border-transparent shadow ring-1 sm:text-sm focus:border-teal-500 focus:ring-teal-500 focus:outline-none">
               </div>
-              <div class="col-md-6 form-group">
+              <div class="font-semibold mt-6">
                 Category
                 <input v-model="itemCategory" type="text" class="text-gray-900 ring-gray-900 ring-opacity-5 placeholder-gray-400 appearance-none bg-white rounded-md block w-1/2 px-3 py-2 border border-transparent shadow ring-1 sm:text-sm focus:border-teal-500 focus:ring-teal-500 focus:outline-none">
               </div>
-                <div class="mt-2">
+                <div class="mt-4">
                     <button type="button" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700" @click="addItem" > Add  </button>
                 </div>
               </div>
     </div>
-    
-
-      <div id="summary" class="w-1/4 px-8 py-10">
-        <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
-        <div class="flex justify-between mt-10 mb-5">
-          <span class="font-semibold text-sm uppercase">Items 3</span>
-          <span class="font-semibold text-sm">590$</span>
-        </div>
-        <div>
-          <label class="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
-          <select class="block p-2 text-gray-600 w-full text-sm">
-            <option>Standard shipping - $10.00</option>
-          </select>
-        </div>
-        <div class="py-10">
-          <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
-          <input id="promo" type="text" placeholder="Enter your code" class="p-2 text-sm w-full">
-        </div>
-        <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
-        <div class="border-t mt-8">
-          <div class="flex font-semibold justify-between py-6 text-sm uppercase">
-            <span>Total cost</span>
-            <span>$600</span>
-          </div>
-          <NuxtLink to="/user/stepper">
-              <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
-          </NuxtLink>
-        </div>
-      </div>
 
     </div>
   </div>
