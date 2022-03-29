@@ -3,13 +3,11 @@
     <div class="container">
         <div class="columns">
             <div class="column is-8 is-offset-2">
-                <HorizontalStepper
-                    :steps="StepperSteps" @completed-step="completeStep"
-                    @active-step="isStepActive" @stepper-finished="alert"
-                >
-                                <ShoppingCartListStepper />
-
-                </HorizontalStepper>
+                <horizontal-stepper
+                  :steps="stepperSteps" @completed-step="completeStep"
+                  @active-step="isStepActive" @stepper-finished="alert"
+                >                     
+                </horizontal-stepper>
             </div>
         </div>
     </div>
@@ -24,29 +22,19 @@ import ShoppingCartListStepper from '~/components/panels/ShoppingCartListStepper
 export default {
   name: 'StepperComponent',
    components: {
-    ShoppingCartListStepper,
     HorizontalStepper,
   },
   data () {
     return {
-      StepperSteps: [
+      stepperSteps: [
                 {
-                    icon: 'mail',
-                    name: 'first',
+                    name: 'Checkout Form',
                     title: 'Sample title 1',
                     subtitle: 'Subtitle sample',
                     component: ShoppingCartListStepper,
                     completed: false
 
                 },
-                // {
-                //     icon: 'report_problem',
-                //     name: 'second',
-                //     title: 'Sample title 2',
-                //     subtitle: 'Subtitle sample',
-                //     component: StepTwo,
-                //     completed: false
-                // }
             ]
       }
     },
@@ -62,14 +50,14 @@ export default {
 
   methods: {
     completeStep(payload) {
-            this.demoSteps.forEach((step) => {
+            this.stepperSteps.forEach((step) => {
                 if (step.name === payload.name) {
                     step.completed = true;
                 }
             })
         },
         isStepActive(payload) {
-            this.demoSteps.forEach((step) => {
+            this.stepperSteps.forEach((step) => {
                 if (step.name === payload.name) {
                     if(step.completed === true) {
                         step.completed = false;
