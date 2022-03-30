@@ -1,17 +1,19 @@
 <template>
-<section class="section">
-    <div class="container">
-        <div class="columns">
-            <div class="column is-8 is-offset-2">
-                <horizontal-stepper
-                  :steps="stepperSteps" @completed-step="completeStep"
-                  @active-step="isStepActive" @stepper-finished="alert"
-                >                     
-                </horizontal-stepper>
-            </div>
-        </div>
-    </div>
-</section>
+	<section class="section">
+		<div class="container">
+			<div class="columns">
+				<div class="column is-8 is-offset-2">
+					<horizontal-stepper
+						:steps="stepperSteps"
+						@completed-step="completeStep"
+						@active-step="isStepActive"
+						@stepper-finished="alert"
+					>
+					</horizontal-stepper>
+				</div>
+			</div>
+		</div>
+	</section>
 </template>
 
 <script>
@@ -29,8 +31,8 @@ export default {
       stepperSteps: [
                 {
                     name: 'Checkout Form',
-                    title: 'Sample title 1',
-                    subtitle: 'Subtitle sample',
+                    title: 'Enter Checkout List',
+                    subtitle: 'Form for Checkout List',
                     component: ShoppingCartListStepper,
                     completed: false
 

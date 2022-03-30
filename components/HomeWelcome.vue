@@ -1,15 +1,15 @@
 <template>
-  <div class="bg-gray-50">
-    <h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"> 
-      Welcome {{ user.email }}
-    </h1>
-   
-    <HomeHeader />
+	<div class="bg-gray-50">
+		<h1 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+			Welcome {{ user.email }}
+		</h1>
 
-    <HomeMain />
+		<HomeHeader />
 
-    <Footer />
-  </div>
+		<HomeMain />
+
+		<Footer />
+	</div>
 </template> 
 
 <script>

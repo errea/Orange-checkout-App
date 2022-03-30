@@ -1,5 +1,5 @@
 <template>
-  <HomeNav />
+	<HomeNav />
 </template>
 
 <script>
