@@ -118,57 +118,46 @@ export default {
    components: {
    
   },
-// props: [
-//           'step', 
-//           'currentstep',
-//           'stepCount',
-//       ],
 data () {
     return {
         currentstep : 1,
-        indicatorclass: true,
         step: 1,
-        active: 1,
-        firststep: true,
-        nextStep:"",
-        lastStep: "",
-        laststep: false,
         steps: [
             {
                 id: 1,
-                title: 'Start',
-                icon_class: "fa fa-map-marker"
+                title: 'Enter CheckList Item',
+                icon_class: "feather feather-bookmark"
             }, {
                 id: 2,
-                title: 'Middle',
-                icon_class: "fa fa-folder-open"
+                title: 'Enter Personal Information',
+                icon_class: "feather feather-user-plus "
             }, {
                 id: 3,
-                title: 'End',
-                icon_class: "fa fa-paper-plane"
+                title: 'Product Details',
+                icon_class: "feather feather-database "
             }
         ]
       }
     },
-// computed: {
-//         indicatorclass() {
-//             return {
-//                 'active': (this.step.id === this.currentstep),
-//                 'complete': (this.currentstep > this.step.id)
-//             }
-//         },
-//         active() {
-//             return (this.step.id === this.currentstep)
-//         },
+computed: {
+        indicatorclass() {
+            return {
+                'active': (this.step.id === this.currentstep),
+                'complete': (this.currentstep > this.step.id)
+            }
+        },
+        active() {
+            return (this.step.id === this.currentstep)
+        },
 
-//         firststep() {
-//             return (this.currentstep === 1)
-//         },
+        firststep() {
+            return (this.currentstep === 1)
+        },
 
-//         laststep() {
-//             return (this.currentstep === this.stepcount)
-//         }
-//     },
+        laststep() {
+            return (this.currentstep === this.stepcount)
+        }
+    },
   mounted() {
     if (sessionStorage.activeUser) {
       const activeUser = sessionStorage.activeUser;
@@ -179,18 +168,18 @@ data () {
     }
   },
 
-  // methods: {
-  //   nextStep() {
-  //           this.$emit('step-change', this.currentstep + 1)
-  //       },
+  methods: {
+    nextStep() {
+            this.$emit('step-change', this.currentstep + 1)
+        },
 
-  //     lastStep() {
-  //           this.$emit('step-change', this.currentstep - 1)
-  //       },
-  //   stepChanged(step) {
-  //           this.currentstep = step;
-  //       }
-  // }
+      lastStep() {
+            this.$emit('step-change', this.currentstep - 1)
+        },
+    stepChanged(step) {
+            this.currentstep = step;
+        }
+  }
 }
 </script>
 
