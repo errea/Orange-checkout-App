@@ -110,8 +110,6 @@
 </template>
 
 <script>
-// import ShoppingCartListStepper from '~/components/panels/ShoppingCartListStepper.vue';
-
 
 export default {
   name: 'StepperComponent',
