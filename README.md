@@ -66,3 +66,140 @@ More information about the usage of this directory in [the documentation](https:
 This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+
+# Orange App Project - Nuxt Form
+
+> This is a nuxt project with form support.
+
+* Sign up Functionality
+* Sign In Functionality
+* Local storage and Session storage
+* Form input checkout list
+  
+The Orange app is a SSG and SPA applicationi= built with nuxt.
+
+<div align="center">
+
+[![View Code](https://img.shields.io/badge/View%20-Code-green)](https://github.com/errea/Orange-checkout-App)
+[![Github Issues](https://img.shields.io/badge/Github%20-Issues-red)](https://github.com/errea/Orange-checkout-App/issues)
+[![GitHub Pull Requests](https://img.shields.io/badge/GitHub-Pull%20Requests-blue)]()
+
+</div>
+
+## 📝 Contents
+
+<p align="center">
+<a href="#with">Built with</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#gs">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#author">Author</a>
+</p>
+
+># [Description]
+> By building this application, I will learn how to use React and Redux.
+How to build the Bookstore website
+You will need to build a website with two subpages: "Books" and "Categories." However, you will only need to implement the "Books" part (see the image below). The "Categories" page will stay empty in this MVP.
+
+
+
+## 🔧 Built with<a name = "with"></a>
+
+- JavaScript
+- Vuejs/nuxtjs
+- Local Storage and Session Storage
+- React Routes
+- Nuxt Life cycle
+- Yarn
+- Vee Validate
+- Components
+- Virtual DOM
+- [Webpack config](hhttps://webpack.js.org/guides/getting-started/)
+- ES6 Modules
+- [Gitflow](https://github.com/microverseinc/curriculum-transversal-skills/blob/main/git-github/articles/gitflow.md)
+- Use [Vuex]().
+- Use styles in a Tailswind and SCSS app. [DOC](https://tailwindcss.com/).
+
+![screenshot](/static/homepage.png)
+
+![screenshot](/static/login.png)
+
+![screenshot](/static/reg.png)
+
+## [LIVE PREVIEW](https://develop--orange-checkout-form.netlify.app/)
+
+## Getting Started <a name = "gs"></a>
+
+> To get a local copy up and running follow these simple example steps.
+
+<details>
+  <summary>Get instructions</summary>
+
+```
+$ cd <folder>
+```
+
+~~~bash
+$ git clone https://github.com/errea/Orange-checkout-App.git
+$ cd Orange-checkout-App
+~~~
+
+Run `yarn Install` to install the node modules and webpacker.
+
+Run `yarn build` to build the bundler.
+
+Run `yarn start`  opens on `http://localhost:3000/` in your browser.
+
+## Set up
+
+* Open your terminal and locate the folder you want to clone the repository and follow the steps above to install
+
+</details>
+
+
+
+## Project Structure
+
+    Book-Store-Redux Project
+    └── node_modules
+    └── .github\workflows
+        └── linters.yml
+    /src
+    |---/components
+    |---/redux
+        |--- /books
+                | books.js
+        |--- /categories
+                | categories.js
+        | cofigureStore.js
+    | index.js
+    └── .eslintrc.json
+    └── .gitignore
+    └── .hintrc
+    └──.stylelintrc.json
+    └── MIT.md
+    └── package-lock.json
+    └── package.json
+    └──README.md
+
+## ✒️  Authors <a name = "author"></a>
+
+👤 **Eri**
+
+- Github: [@errea](https://github.com/errea)
+- Twitter: [@Erreakay](https://github.com/errea)
+- Linkedin: [Eri Okereafor](https://www.linkedin.com/in/eri-ngozi-okereafor/)
+  
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+Feel free to check the [issues page]()
+
+## 👍 Show your support and Star project
+
+## Acknowledgments
+
+- Microverse
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
